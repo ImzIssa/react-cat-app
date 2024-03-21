@@ -67,8 +67,6 @@ const CatDetailsPage = () => {
       </div>
     </section>
   );
-
-  return <>{JSON.stringify(cat)}</>;
 };
 
 export default CatDetailsPage;

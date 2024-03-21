@@ -4,12 +4,10 @@
 import React, { useState, useContext, useEffect, useMemo } from "react";
 import { useCallback } from "react";
 import axios from "axios";
-import data from "./data/data.json";
 
 const API_KEY = import.meta.env.VITE_CATS_API_KEY;
-const url = "https://api.thecatapi.com/v1/images/search?limit=10";
+// const url = "https://api.thecatapi.com/v1/images/search?limit=10";
 const breeds_url = `https://api.thecatapi.com/v1/breeds`;
-// const breeds_url = `https://api.thecatapi.com/v1/breeds`;
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
@@ -17,7 +15,7 @@ const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("a");
   const [searchList, setSearchList] = useState([]);
-  const [cats, setCats] = useState(data);
+  const [cats, setCats] = useState([]);
 
   useEffect(() => {
     const darkMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
@@ -36,16 +34,15 @@ const AppProvider = ({ children }) => {
   const fetchCatsBreeds = useCallback(async () => {
     setLoading(true);
     try {
-      // const response = await axios.get(`${url}${searchTerm}`, {
-      // const response = await axios.get(breeds_url, {
-      // headers: {
-      // "x-api-key": API_KEY,
-      // },
-      // });
+      const response = await axios.get(breeds_url, {
+        headers: {
+          "x-api-key": API_KEY,
+        },
+      });
+      const data = await response.data;
       const _data = data.filter((img) => img.image?.url != null);
       const categories = _data.map(({ id, name }) => ({ id, name }));
-      // let data = response.data;
-      console.log(_data);
+
       setCats(_data);
       setSearchList(categories);
       setLoading(false);
@@ -54,10 +51,6 @@ const AppProvider = ({ children }) => {
       setLoading(false);
     }
   }, []);
-
-  // useEffect(() => {
-  //   fetchCats();
-  // }, [searchTerm, fetchCats]);
 
   useEffect(() => {
     fetchCatsBreeds();
