@@ -5,6 +5,11 @@
   background-color: transparent;
 }
 
+.scroll-top svg {
+  width: 1.25em;
+  height: 1.25em;
+}
+
 @media (max-width: 950px) {
   .scroll-top {
     display: none;

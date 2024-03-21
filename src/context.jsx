@@ -69,6 +69,10 @@ const AppProvider = ({ children }) => {
     );
   }, [cats, searchTerm]);
 
+  const singleCat = (id) => {
+    return cats.filter((cat) => cat.id === id)[0];
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -79,6 +83,7 @@ const AppProvider = ({ children }) => {
         filteredCats,
         searchTerm,
         setSearchTerm,
+        singleCat,
       }}
     >
       {children}

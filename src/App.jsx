@@ -1,20 +1,18 @@
-// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import PageNotFound from "./pages/PageNotFound";
+import Navbar from "./components/Navbar";
+import ScrollToTop from "./components/ScrollToTop";
 import { useState, useEffect } from "react";
-
 import { useGlobalContext } from "./context";
 
-import Navbar from "./components/Navbar";
-// import { Home } from "./pages/Home";
-// import { PageNotFound } from "./pages/PageNotFound";
-import ScrollToTop from "./components/ScrollToTop";
-import SearchForm from "./components/Search";
 import "./styles/Navbar.css";
 import "./styles/App.css";
-
 import "./styles/CatsSection.css";
 import "./styles/CatCard.css";
 import "./styles/Loader.css";
-import CatsList from "./components/CatsList";
+import "./styles/ScrollToTop.css";
+import CatDetailsPage from "./pages/CatDetailsPage";
 
 function App() {
   const [isMounted, setIsMounted] = useState(false);
@@ -35,28 +33,17 @@ function App() {
   }
   return (
     <div id="top" className="app">
-      <Navbar />
-
-      <main>
-        <div className="animate__animated animate__fadeIn animate__delay-5s">
-          <SearchForm />
-          <CatsList />
-        </div>
-      </main>
-
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="cat/:id/details" element={<CatDetailsPage />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </Router>
       <ScrollToTop />
     </div>
   );
-}
-{
-  /* <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="favorites" element={<>Favorites</>} />
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-    </Router> */
 }
 
 export default App;

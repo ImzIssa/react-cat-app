@@ -14,8 +14,21 @@ const ScrollToTop = () => {
   return isVisible ? (
     <div className="scroll-top">
       <a href="#top">
-        UP
-        {/* <ArrowUpwardIcon fontSize='large' /> */}
+        <svg
+          className="w-6 h-6 text-gray-400  dark:text-gray-100"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 10 14"
+        >
+          <path
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M5 13V1m0 0L1 5m4-4 4 4"
+          />
+        </svg>
       </a>
     </div>
   ) : null;

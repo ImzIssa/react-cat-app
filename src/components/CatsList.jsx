@@ -1,5 +1,5 @@
 import { useGlobalContext } from "../context";
-import { CatCard } from "./CatCard";
+import CatCard from "./CatCard";
 import { Loader } from "./Loader";
 
 const CatsList = () => {
