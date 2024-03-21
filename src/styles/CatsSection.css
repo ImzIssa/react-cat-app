@@ -1,0 +1,33 @@
+/* 
+====== 
+Cats List 
+======
+*/
+
+.section {
+    padding: 2rem 0;
+  }
+  
+.section-title {
+  font-size: 2rem;
+  text-transform: capitalize;
+  letter-spacing: var(--mainSpacing);
+  text-align: center;
+  margin: 2rem 0;
+  /* color: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% ); */
+}
+
+.cats-center {
+  width: var(--smallWidth);
+  margin: 0 auto;
+  max-width: var(--fullWidth);
+  display: grid;
+  row-gap: 2rem;
+  column-gap: 2rem;
+  justify-items: center;
+}
+@media screen and (min-width: 576px) {
+  .cats-center {
+    grid-template-columns: repeat(auto-fill, minmax(338.8px, 1fr));
+  }
+}
