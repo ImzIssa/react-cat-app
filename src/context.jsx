@@ -13,7 +13,7 @@ const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
   const [themeName, setThemeName] = useState("light");
   const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState("a");
+  const [searchTerm, setSearchTerm] = useState("");
   const [searchList, setSearchList] = useState([]);
   const [cats, setCats] = useState([]);
 
@@ -54,7 +54,8 @@ const AppProvider = ({ children }) => {
 
   useEffect(() => {
     fetchCatsBreeds();
-  }, [searchTerm, fetchCatsBreeds]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const filteredCats = useMemo(() => {
     return cats.filter((cat) =>
@@ -63,6 +64,7 @@ const AppProvider = ({ children }) => {
   }, [cats, searchTerm]);
 
   const singleCat = (id) => {
+    setSearchTerm("");
     return cats.filter((cat) => cat.id === id)[0];
   };
 

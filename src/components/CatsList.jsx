@@ -20,6 +20,7 @@ const CatsList = () => {
       </div>
     );
   }
+  console.log(searchTerm);
   return (
     <section className="section">
       <h2 className="section-title">

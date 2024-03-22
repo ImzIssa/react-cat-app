@@ -15,6 +15,7 @@ const CatCard = ({ data }) => {
         <div className="card__content">
           <p className="card__title">{data.name}</p>
           <p className="card__description truncate">{data.description}</p>
+          {/* <button className="btn">View</button> */}
         </div>
       </div>
     </Link>
