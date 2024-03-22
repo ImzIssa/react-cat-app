@@ -1,6 +1,6 @@
 .nav {
   /* height: var(--navbar-height); */
-  justify-content: center;
+  /* justify-content: center; */
   position: sticky;
   top: 0;
   z-index: 2;
@@ -11,7 +11,7 @@
 }
 
 .logo {
-  width: 12rem;
+  width: 2rem;
   height: 2rem;
 }
 

@@ -20,7 +20,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`center nav ${scrolled ? "shadow" : ""}`}>
+    <nav className={`nav ${scrolled ? "shadow" : ""}`}>
       <div className="nav__content">
         <Link to="/">
           <img src={logo} alt="cocktail db logo" className="logo" />
